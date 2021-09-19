@@ -33,16 +33,11 @@ class Home {
         //homepage - tours
         //and other parts of homepage goes here...
 
-        /*
-            Note: we can go one step deeper and work on component level rather than page level
-            
-            e.g. #hotels-search form is a component and selectors, client functions, actions etc. 
-                can be isolated in a HotelsSearch class 
-                which will promote the use of single responsibility principle
-                and becomes easier to manage in long run
+        /* Note:
+            We can work on component level and then page level.
+            Test organisation will be much simpler and easy to maintain in the long run.
+            Given shortage of time, just adding it as a suggestion.
         */
-
-       
        
         //Client functions:
 

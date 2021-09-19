@@ -1,40 +1,29 @@
 [![phptravels](https://circleci.com/gh/punarjit-singh/phptravels-web-tests.svg?style=svg)](https://app.circleci.com/pipelines/github/punarjit-singh/phptravels-web-tests)
 
 ## Running the tests:
-    mvn test -Dkarate.env=prod      #run all prod weatherbit tests in parallel
-    mvn test -Dtest=WeatherBitTest  #run all weatherbit tests in parallel for default env
-    mvn test -Dtest=CurrentRunner   #run only /current weather tests (for local dev)
+    npm run test                #run all tests using default config .testcaferc.js
+    npm run test-smoke          #run only tests with meta data {suite: 'smoke'}
+    npm run test-regression     #run only fixtures with meta data {suite: 'regression'}
     
-
-## Folder Structure
-Note: The folder structure is kept simpler on purpose based on an assumption that these tests will sit outside of actual app code, hence the `com.mycompany.foo.bar` convention and the addition of conventional sub-folders isn't done. The folder hierarchy is only one or two levels deep for demo purposes - where the folder names identify the API under test.
-
-    - ~/src/test/java
-        - weatherbit
-            - current (matching the endpoint /current)
-                - feature files
-                - individual feature runner
-            - runner for all features
-        - karate-config.js
-    - ~/.circleci
-        - config.yml
-    - pom.xml
-    - README.md
-
-If tests need to sit inside the app codebase, we can use the conventional java folder structure.
-
-### Sample Report
-![Karate Reports](/karate-report-sample.png)
-
 ### CircleCI
-Basic circle ci config has been setup for this project but it can be extented to excute custom commands via the `circleci/maven@1.2.0` orb or custom configuration using docker executors. 
-
 ![CircleCI Sample Snapshot](/circleci.png)
 
 ### Further Improvements/Todos
-- Running all tests using WeatherBitTest class generates a summary that shows test count as 1. This can be improved to show actual test count in CircleCI.
-- Reporting artifacts can be uploaded to CircleCI and reports can be made available throught its CircleCI app.
-- Depending on the nature of the actual project/api, folder structure can be adjusted accordingly to fit project needs.
-- Karate logging can be improved.
-- Continuous improvements to the framework, including adding test tagging support.
-- Move API keys to secure key-vault or masked CI configs.
+-  More tests and detailed assertions.
+- Test organisation can be done based on components 
+    - i.e. we can go one step deeper and work on component level and then page level
+  e.g. #hotels-search form is a component and selectors, client functions, actions etc. can be isolated in a HotelsSearch class 
+  Which will promote the use of single responsibility principle and becomes easier to manage in long run
+      
+- Page objects can be chained as given below:
+    ```
+    Note: this structure can be improved to look something like:
+    await Home
+        .selectHotelsTab()
+        .enterAndSelectCity({city: "Singapore"})
+        .andSoOn(); ...
+    
+    Open issue/feature request: https://github.com/DevExpress/testcafe/issues/1535
+  
+    Need further investigation and could also use javascript's pipe() and compose() 
+    ```

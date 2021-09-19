@@ -7,12 +7,12 @@ import HotelBookingInvoice from '../pages/hotel-booking-invoice'
 
 fixture 
     .meta({suite: 'regression'})       //meta data on fixture level and run suite as a whole
-    `I want to be able to book hotels`
+    `I want to be able to`
     .page(userVariables.baseUrl);
 
 test
     .meta({suite: 'smoke'})            //meta data on test level and run a filtered smoke suite as required
-    ('from app home', async t => {
+    ('book hotels from app home', async t => {
         await Home
             .selectHotelsTab();
         
@@ -48,28 +48,13 @@ test
 
         await HotelBookingInvoice
             .verifyBookingInvoice({rooms: "1", adults: "2", childs: "0"});
-        await t
-            .wait(20000);
     });
 
+//more tests here...
+
 /*
-            Note: this structure can be improved to look something like:
-            await Home
-                .selectHotelsTab()
-                .enterAndSelectCity({city: "Singapore"})
-                .andSoOn(); ...
-            https://github.com/DevExpress/testcafe/issues/1535
-            Can improve on this with some research.
+test
+    .meta({suite: 'smoke'})
+    ('book hotels from hotels page', async t => {
+    });
 */
-
-// test
-//     .meta({suite: 'smoke'})
-//     ('Test1', async t => {
-//         /* Test 1 Code */
-//     });
-
-// test
-//     .meta({suite: 'smoke'})
-//     ('Test2', async t => {
-//         /* Test 2 Code */
-//     });
