@@ -17,15 +17,13 @@
   e.g. #hotels-search form is a component and selectors, client functions, actions etc. can be isolated in a HotelsSearch class 
   Doing so will promote the use of single responsibility principle, which is easier to manage in long run as the project grows
       
-- Page objects can be chained as given below:
+- The test structure can be improved to look something like:
     ```
-    The test structure can be improved to look something like:
     await Home
         .selectHotelsTab()
         .enterAndSelectCity({city: "Singapore"})
         .andSoOn(); ...
-    
-    Open issue/feature request: https://github.com/DevExpress/testcafe/issues/1535
-  
-    Needs further investigation and could also use javascript's pipe() and compose() to improve the test structure.
     ```
+    - Open issue/feature request for the same: https://github.com/DevExpress/testcafe/issues/1535
+    - Needs further investigation and could also use javascript's pipe() and compose() to improve the test structure.
+    
