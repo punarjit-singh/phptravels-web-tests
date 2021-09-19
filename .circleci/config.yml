@@ -11,10 +11,10 @@ jobs:
       - browser-tools/install-browser-tools
       - node/install-packages
       - run:
-          command: npm run test
+          command: npm run test-smoke
       - store_test_results:
           path: /reports
 workflows:
-  e2e-test:
+  smoke-test:
     jobs:
       - test

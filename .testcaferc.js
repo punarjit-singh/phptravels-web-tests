@@ -2,6 +2,8 @@ module.exports = {
     skipJsErrors: true,
     skipUncaughtErrors: true,
     stopOnFirstFail: true,
+    quarantineMode: false,
+    browsers: "chrome",
     src: ["./tests/**/*.js"],
     userVariables: {
         baseUrl: "https://www.phptravels.net/",
