@@ -13,7 +13,7 @@ jobs:
       - run:
           command: npm run test-smoke
       - store_test_results:
-          path: /reports
+          path: ./reports
 workflows:
   smoke-test:
     jobs:
