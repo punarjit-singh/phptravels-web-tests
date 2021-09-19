@@ -1,0 +1,19 @@
+{
+  "name": "phptravels-web-tests",
+  "version": "1.0.0",
+  "description": "Web tests for phptravels",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcafe",
+    "test-smoke": "testcafe --test-meta suite=smoke",
+    "test-prod": "testcafe --config-file .testcaferc.js",
+    "test-stg": "testcafe --config-file .testcaferc-stg.js",
+    "test-regression": "testcafe --fixture-meta suite=regression",
+    "test-smoke-stg": "testcafe --test-meta suite=smoke --config-file .testcaferc-stg.js"
+  },
+  "author": "punarjit-singh",
+  "license": "ISC",
+  "dependencies": {
+    "testcafe": "^1.16.0"
+  }
+}
