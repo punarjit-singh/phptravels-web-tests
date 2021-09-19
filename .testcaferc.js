@@ -3,7 +3,7 @@ module.exports = {
     skipUncaughtErrors: true,
     stopOnFirstFail: true,
     quarantineMode: false,
-    browsers: "safari",
+    browsers: "all",
     src: ["./tests/**/*.js"],
     userVariables: {
         baseUrl: "https://www.phptravels.net/",

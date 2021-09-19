@@ -3,7 +3,7 @@ module.exports = {
     skipUncaughtErrors: true,
     stopOnFirstFail: true,
     quarantineMode: true,
-    browsers: "safari",
+    browsers: "chrome",
     src: ["./tests/**/*.js"],
     userVariables: {
         baseUrl: "https://www.phptravels-staging.net/",     //url is incorrect, just for demo env specific config
